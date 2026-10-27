@@ -1,0 +1,20 @@
+{
+  "name": "assessment-priyanshu-maurya-bugwise",
+  "version": "1.0.0",
+  "description": "BugWise is a full-stack, AI-powered developer tool designed to analyze code snippets, detect bugs, explain root causes, and propose corrected code solutions. By leveraging large language models (OpenAI), BugWise accelerates the debugging process by not only fixing the code but by providing deep technical context, visual root-cause timelines, security scanning, performance analysis, and mock interview practice based on the bug.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/deepanshuarya75way/assessment-priyanshu-maurya-BugWise.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/deepanshuarya75way/assessment-priyanshu-maurya-BugWise/issues"
+  },
+  "homepage": "https://github.com/deepanshuarya75way/assessment-priyanshu-maurya-BugWise#readme"
+}
