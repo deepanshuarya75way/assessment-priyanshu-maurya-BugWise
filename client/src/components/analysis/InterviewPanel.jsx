@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { UserCheck, MessageSquare, Loader2, Send } from 'lucide-react';
-import axios from 'axios';
+// import axios from 'axios';
+import api from '../../services/api';
 
 export default function InterviewPanel({ analysis }) {
   const questions = analysis.result.interviewMode?.questions || [];
@@ -18,11 +19,11 @@ export default function InterviewPanel({ analysis }) {
     setEvaluating(true);
     setFeedback(null);
     try {
-      const token = localStorage.getItem('token');
-      const res = await axios.post(`/api/analyses/${analysis._id}/interview`, {
+      // const token = localStorage.getItem('token');
+      const res = await api.post(`/analyses/${analysis._id}/interview`, {
         questionIndex: currentIndex,
         userResponse: answer
-      }, { headers: { Authorization: `Bearer ${token}` } });
+      });
       setFeedback(res.data.evaluation);
     } catch (err) {
       console.error(err);

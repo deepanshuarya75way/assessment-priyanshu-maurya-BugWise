@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { MessageSquare, X, Send, Loader2, Bot, User } from 'lucide-react';
-import axios from 'axios';
+// import axios from 'axios';
+import api from '../../services/api';
 
 export default function ChatDrawer({ analysis, isOpen, onClose }) {
   const [messages, setMessages] = useState([]);
@@ -30,8 +31,8 @@ export default function ChatDrawer({ analysis, isOpen, onClose }) {
     setLoading(true);
 
     try {
-      const token = localStorage.getItem('token');
-      const res = await axios.post(`/api/analyses/${analysis._id}/chat`, { userMessage: userMsg }, { headers: { Authorization: `Bearer ${token}` } });
+      // const token = localStorage.getItem('token');
+      const res = await api.post(`/analyses/${analysis._id}/chat`, { userMessage: userMsg });
       setMessages(res.data.data); // Replace entirely with updated history
     } catch (err) {
       setMessages(prev => [...prev, { role: 'assistant', message: 'Error: Failed to reach AI assistant. Please try again later.' }]);

@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Terminal, Copy, Check, Info, Sparkles, History, Loader2, MessageSquare } from 'lucide-react';
-import axios from 'axios';
+// import axios from 'axios';
+import api from '../services/api';
 import { Link } from 'react-router-dom';
 import MonacoEditor from '../components/MonacoEditor';
 import OverviewPanel from '../components/analysis/OverviewPanel';
-import FixPanel from '../components/analysis/FixPanel';
+import FixPanel from '../components/analysis/Abc';
 import SecurityPerformancePanel from '../components/analysis/SecurityPerformancePanel';
 import TestsPanel from '../components/analysis/TestsPanel';
 import LearningPanel from '../components/analysis/LearningPanel';
@@ -37,11 +38,7 @@ const DashboardPage = () => {
     setCurrentAnalysis(null);
 
     try {
-      const token = localStorage.getItem('token');
-      const response = await axios.post(
-        '/api/analyses',
-        { language, errorInput, context },
-        { headers: { Authorization: `Bearer ${token}` } }
+      const response = await api.post('/analyses',{ language, errorInput, context },
       );
       setCurrentAnalysis(response.data.data);
       setActiveTab('Overview');
